@@ -1,37 +1,97 @@
+@charset "UTF-8";
+/* Mixin - Mixin er en måde at genbruge en kode på. Man tager kode som bruges flere steder og samler det i en mixin */
+/* Partial fil hentes ind som et modul - gør det muligt at hente og genbruge variabler, mixins og funktioner i andre filer */
 * {
   box-sizing: border-box;
   margin: 0;
 }
 
+body {
+  background-color: #FBFFF9;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+body p, body a {
+  font-size: 16px;
+  color: #000;
+  line-height: 1.5;
+}
+body h1, body h2, body h3, body h4 {
+  font-weight: 600;
+  color: #000;
+}
+
 img {
   max-width: 100%;
+  height: auto;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  height: 11vh;
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 30px;
+  margin: 1em;
+  padding: 0 2em;
+}
+
+nav {
+  width: 100%;
+  /* $justify & $align er lokale variabler koblet til flex-mixin. Kan ændres når man kalder på denne mixin */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav img {
+  width: 200px;
+}
+nav #bars {
+  display: none;
+}
+nav ul {
+  list-style-type: none;
+  /* $justify & $align er lokale variabler koblet til flex-mixin. Kan ændres når man kalder på denne mixin */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+nav a {
+  color: #567548;
+  padding: 0.5em;
+  margin: 0.5em;
+  font-size: 16px;
+  text-decoration: none;
+}
+nav .active {
+  font-weight: bold;
 }
 
 main {
-  background-color: #02142B;
-  color: #cff6ea;
+  background-color: #FBFFF9;
+  color: #365528;
   min-height: 100vh;
 }
 
 .stage {
-  background-color: #cff6ea;
-  color: #02142B;
+  background-color: #fff;
+  color: #fff;
   display: none;
   margin: 0 auto;
   max-width: 800px;
-  padding: 1rem;
 }
 .stage.active {
   display: block;
 }
 .stage .btn {
-  background-color: #2e058d;
+  background-color: #365528;
   border: none;
-  border-radius: 1rem;
-  color: #cff6ea;
-  margin: 0.5rem 0;
-  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  color: #fff;
+  padding: 1em;
 }
 .stage .btn:hover {
-  background-color: #fa3292;
+  background-color: #fff;
+  color: #365528;
+  border: 2px solid;
 }/*# sourceMappingURL=style.css.map */

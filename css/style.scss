@@ -1,40 +1,97 @@
-$bg: #02142B;
-$primaryColor: #cff6ea;
-$cta: #2e058d;
-$cta-hover: #fa3292;
-$space: 1rem;
+@use "partial"; /* Partial fil hentes ind som et modul - gør det muligt at hente og genbruge variabler, mixins og funktioner i andre filer */
 
 * {
     box-sizing: border-box;
     margin: 0;
 }
+
+body{
+    background-color: partial.$bg;
+    font-family: partial.$font;
+    p, a{
+        font-size: 16px;
+        color: partial.$textColor;
+        line-height: 1.5;
+    }
+
+    h1,h2,h3,h4 {
+        font-weight: 600;
+        color: partial.$textColor;
+    }
+}
+
 img {
     max-width: 100%;
+    height: auto;
 }
+
+// HEADER //
+header{
+    display: flex;
+    align-items: center;
+    height: 11vh;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 30px;
+    margin: 1em;
+    padding: 0 2em;
+}
+
+// NAVIGATION// 
+nav{
+    width: 100%;
+    @include partial.flex($justify: space-between);
+    
+    img{
+        width: 200px;
+    }
+
+    #bars{ //burgermenu
+        display: none;
+    }
+
+    ul{
+        list-style-type: none;
+        @include partial.flex;
+    }
+
+    a{
+        color: partial.$primaryColor;
+        padding: 0.5em;
+        margin: 0.5em;
+        font-size: 16px;
+        text-decoration: none;
+    }
+    .active{
+        font-weight: bold;
+    }
+}
+
 main {
-    background-color: $bg;
-    color: $primaryColor;
+    background-color: partial.$bg;
+    color: partial.$secondaryColor;
     min-height: 100vh;
+
 }
 .stage {
-    background-color: $primaryColor;
-    color: $bg;
+    background-color: #fff;
+    color: #fff;
     display: none;
     margin: 0 auto;
     max-width: 800px;
-    padding: $space;
     &.active {
         display: block;
     }
     .btn {
-        background-color: $cta;
+        background-color: partial.$secondaryColor;
         border: none;
-        border-radius: $space;
-        color: $primaryColor;
-        margin: $space/2 0;
-        padding: $space/2 $space;
+        border-radius: 25px;
+        color: #fff;
+        padding: 1em;
     }
     .btn:hover {
-        background-color: $cta-hover;
+        background-color: #fff;
+        color: partial.$secondaryColor;
+        border: 2px solid;
     }
 }
