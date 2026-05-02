@@ -8,7 +8,7 @@
 
 body {
   background-color: #FBFFF9;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "inter-18pt", sans-serif;
 }
 body p, body a {
   font-size: 16px;
@@ -67,9 +67,32 @@ nav .active {
   font-weight: bold;
 }
 
+.hero-sektion {
+  /* $justify & $align er lokale variabler koblet til flex-mixin. Kan ændres når man kalder på denne mixin */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 50vh;
+  text-align: center;
+  gap: 1em;
+}
+.hero-sektion h1, .hero-sektion p {
+  color: #567548;
+  max-width: 550px;
+}
+.hero-sektion .btn-hero {
+  background-color: #fff;
+  border: 2.5px solid #567548;
+  border-radius: 30px;
+  color: #365528;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 1em 1.5em;
+}
+
 main {
   background-color: #FBFFF9;
-  color: #365528;
   min-height: 100vh;
 }
 

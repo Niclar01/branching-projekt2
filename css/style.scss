@@ -67,9 +67,33 @@ nav{
     }
 }
 
+// HERO SEKTION // 
+.hero-sektion{
+    @include partial.flex; //centrerer
+    flex-direction: column; //under hinanden
+    height: 50vh;
+    text-align: center;
+    gap: 1em; //plads mellem teksterne og knap
+    
+        h1, p{
+            color: partial.$primaryColor;
+            max-width: 550px;
+        }
+
+        .btn-hero{
+            background-color: #fff;
+            border: 2.5px solid partial.$primaryColor;
+            border-radius: 30px;
+            color: partial.$secondaryColor;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 1em 1.5em;
+        }
+
+}
+
 main {
     background-color: partial.$bg;
-    color: partial.$secondaryColor;
     min-height: 100vh;
 
 }
