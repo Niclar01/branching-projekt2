@@ -133,28 +133,27 @@ nav .active {
   margin-bottom: 1em;
 }
 
-/*.stage {
-    background-color: #fff;
-    color: #fff;
-    display: none;
-    margin: 0 auto;
-    max-width: 800px;
-    &.active {
-        display: block;
-    }
-    .btn {
-        background-color: partial.$secondaryColor;
-        border: none;
-        border-radius: 25px;
-        color: #fff;
-        padding: 1em;
-    }
-    .btn:hover {
-        background-color: #fff;
-        color: partial.$secondaryColor;
-        border: 2px solid;
-    }
-}*/
+.stage {
+  display: none;
+  background-color: #fff;
+  color: #fff;
+  display: none;
+  margin: 0 auto;
+  max-width: 800px;
+}
+.stage .btn {
+  background-color: #365528;
+  border: none;
+  border-radius: 25px;
+  color: #fff;
+  padding: 1em;
+}
+.stage .btn:hover {
+  background-color: #fff;
+  color: #365528;
+  border: 2px solid;
+}
+
 footer {
   grid-column: 1/4;
   background-color: #365528;

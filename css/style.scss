@@ -146,15 +146,14 @@ nav{
 
 //STAGES
 
-/*.stage {
+.stage {
+    display: none;
     background-color: #fff;
     color: #fff;
     display: none;
     margin: 0 auto;
     max-width: 800px;
-    &.active {
-        display: block;
-    }
+
     .btn {
         background-color: partial.$secondaryColor;
         border: none;
@@ -167,7 +166,7 @@ nav{
         color: partial.$secondaryColor;
         border: 2px solid;
     }
-}*/
+}
 
 //FOOTER
 
