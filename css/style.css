@@ -63,6 +63,10 @@ nav a {
   font-size: 16px;
   text-decoration: none;
 }
+nav a:hover {
+  font-weight: bold;
+  cursor: pointer;
+}
 nav .active {
   font-weight: bold;
 }
@@ -90,31 +94,100 @@ nav .active {
   font-weight: bold;
   padding: 1em 1.5em;
 }
-
-main {
-  background-color: #FBFFF9;
-  min-height: 100vh;
-}
-
-.stage {
-  background-color: #fff;
+.hero-sektion .btn-hero:hover {
+  background-color: #567548;
   color: #fff;
-  display: none;
-  margin: 0 auto;
-  max-width: 800px;
+  cursor: pointer;
+  transition: 0.3s ease;
 }
-.stage.active {
-  display: block;
+
+.tekst-img-sektion {
+  grid-column: 1/6;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  height: 50vh;
+  margin-bottom: 5em;
 }
-.stage .btn {
+
+.computer-billede {
+  grid-column: 1/4;
+  background-image: url(../img/computer.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.tekst {
+  grid-column: 4/7;
+  background-color: #567548;
+  padding: 4em;
+}
+.tekst h2, .tekst p {
+  color: #FBFFF9;
+}
+.tekst h2 {
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+.tekst p {
+  margin-bottom: 1em;
+}
+
+/*.stage {
+    background-color: #fff;
+    color: #fff;
+    display: none;
+    margin: 0 auto;
+    max-width: 800px;
+    &.active {
+        display: block;
+    }
+    .btn {
+        background-color: partial.$secondaryColor;
+        border: none;
+        border-radius: 25px;
+        color: #fff;
+        padding: 1em;
+    }
+    .btn:hover {
+        background-color: #fff;
+        color: partial.$secondaryColor;
+        border: 2px solid;
+    }
+}*/
+footer {
+  grid-column: 1/4;
   background-color: #365528;
-  border: none;
-  border-radius: 25px;
-  color: #fff;
-  padding: 1em;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 1em 1em;
 }
-.stage .btn:hover {
-  background-color: #fff;
-  color: #365528;
-  border: 2px solid;
+footer p, footer h3 {
+  color: #fff;
+  line-height: 1.5;
+  font-style: normal;
+  font-size: 16px;
+}
+footer a {
+  color: #fff;
+}
+footer a:hover {
+  color: #567548;
+}
+
+.footer-venstre ul {
+  list-style: none;
+  padding: 0;
+}
+
+.logo-footer {
+  align-self: center;
+  justify-self: center;
+  width: 250px;
+  height: auto;
+}
+
+.footer-højre {
+  text-align: right;
+  margin: auto 0;
 }/*# sourceMappingURL=style.css.map */

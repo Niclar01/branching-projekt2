@@ -61,6 +61,12 @@ nav{
         margin: 0.5em;
         font-size: 16px;
         text-decoration: none;
+            
+                &:hover{
+                    font-weight: bold;
+                    cursor: pointer;
+                    
+                }
     }
     .active{
         font-weight: bold;
@@ -88,16 +94,59 @@ nav{
             font-size: 16px;
             font-weight: bold;
             padding: 1em 1.5em;
+            
+                &:hover{
+                    background-color: partial.$primaryColor;
+                    color: #fff;
+                    cursor: pointer;
+                    transition: 0.3s ease;
+                }
+
         }
 
 }
 
-main {
-    background-color: partial.$bg;
-    min-height: 100vh;
+//TEKST & BILLEDE SEKTION
+.tekst-img-sektion{
+    grid-column: 1/6;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    height: 50vh;
+    margin-bottom: 5em;
+}
+
+.computer-billede{
+    grid-column: 1/4;
+    background-image: url(../img/computer.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.tekst{
+    grid-column: 4/7;
+    background-color: partial.$primaryColor;
+    padding: 4em;
+
+    
+        h2, p{
+            color: partial.$bg;
+        }
+
+        h2{
+            text-align: center;
+            margin-bottom: 0.5em;
+        }
+
+        p{
+            margin-bottom: 1em; //plads mellem p sektioner
+        }
 
 }
-.stage {
+
+//STAGES
+
+/*.stage {
     background-color: #fff;
     color: #fff;
     display: none;
@@ -118,4 +167,46 @@ main {
         color: partial.$secondaryColor;
         border: 2px solid;
     }
+}*/
+
+//FOOTER
+
+footer{
+    grid-column: 1/4;
+    background-color: partial.$secondaryColor;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 1em 1em;
+
+    p, h3{
+            color: #fff;
+            line-height: 1.5;
+            font-style: normal;
+            font-size: 16px;
+        }
+
+        a{
+            color: #fff;
+                &:hover{
+                    color: partial.$primaryColor;
+                }
+        }
+
+}
+
+.footer-venstre ul{
+ list-style: none;
+ padding: 0;
+}
+
+.logo-footer{
+    align-self: center;
+    justify-self: center;
+    width: 250px;
+    height: auto;
+}
+
+.footer-højre{
+    text-align: right;
+    margin: auto 0;
 }
