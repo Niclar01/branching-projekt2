@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+main {
+  background-color: #02142B;
+  color: #cff6ea;
+  min-height: 100vh;
+}
+
+.stage {
+  background-color: #cff6ea;
+  color: #02142B;
+  display: none;
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 1rem;
+}
+.stage.active {
+  display: block;
+}
+.stage .btn {
+  background-color: #2e058d;
+  border: none;
+  border-radius: 1rem;
+  color: #cff6ea;
+  margin: 0.5rem 0;
+  padding: 0.5rem 1rem;
+}
+.stage .btn:hover {
+  background-color: #fa3292;
+}/*# sourceMappingURL=style.css.map */

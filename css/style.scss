@@ -1,0 +1,40 @@
+$bg: #02142B;
+$primaryColor: #cff6ea;
+$cta: #2e058d;
+$cta-hover: #fa3292;
+$space: 1rem;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+img {
+    max-width: 100%;
+}
+main {
+    background-color: $bg;
+    color: $primaryColor;
+    min-height: 100vh;
+}
+.stage {
+    background-color: $primaryColor;
+    color: $bg;
+    display: none;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: $space;
+    &.active {
+        display: block;
+    }
+    .btn {
+        background-color: $cta;
+        border: none;
+        border-radius: $space;
+        color: $primaryColor;
+        margin: $space/2 0;
+        padding: $space/2 $space;
+    }
+    .btn:hover {
+        background-color: $cta-hover;
+    }
+}
