@@ -134,24 +134,62 @@ nav .active {
 }
 
 .stage {
-  display: none;
-  background-color: #fff;
-  color: #fff;
-  display: none;
-  margin: 0 auto;
-  max-width: 800px;
+  /* $justify & $align er lokale variabler koblet til flex-mixin. Kan ændres når man kalder på denne mixin */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  min-height: 70vh;
+  max-width: 550px;
+  margin: 3em auto;
+  /*padding: 14em 0;*/
+  gap: 0.5em;
 }
-.stage .btn {
+.stage p {
+  margin-bottom: 1em;
+}
+.stage button {
   background-color: #365528;
   border: none;
-  border-radius: 25px;
+  border-radius: 100px;
   color: #fff;
-  padding: 1em;
+  padding: 1.5em;
 }
-.stage .btn:hover {
+.stage button:hover {
   background-color: #fff;
   color: #365528;
   border: 2px solid;
+}
+
+.start-stage button, .resultat-stage button {
+  display: block;
+  padding: 1em 3em;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #567548;
+}
+
+.spørgsmål-stage button {
+  font-size: 16px;
+  width: 400px;
+  text-align: left;
+}
+
+.resultat-stage {
+  gap: 1em;
+}
+.resultat-stage .text-box {
+  background-color: #365528;
+  text-align: left;
+  border-radius: 20px;
+  padding: 1.5em;
+  height: 50vh;
+  margin-bottom: 2em;
+}
+.resultat-stage p {
+  color: white;
+  font-size: 14px;
 }
 
 footer {
@@ -168,10 +206,11 @@ footer p, footer h3 {
   font-size: 16px;
 }
 footer a {
+  transition: 0.3s;
   color: #fff;
 }
 footer a:hover {
-  color: #567548;
+  color: #42b393;
 }
 
 .footer-venstre ul {

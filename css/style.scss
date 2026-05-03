@@ -146,27 +146,69 @@ nav{
 
 //STAGES
 
-.stage {
-    display: none;
-    background-color: #fff;
-    color: #fff;
-    display: none;
-    margin: 0 auto;
-    max-width: 800px;
+.stage { //generel styling af området
+    @include partial.flex; //centrerer
+    flex-direction: column;
+    text-align: center;
+    min-height: 70vh;
+    max-width: 550px; // fylder max 550px
+    margin: 3em auto; // centrerer 
+    
+    /*padding: 14em 0;*/
+    gap: 0.5em;
 
-    .btn {
+    p{
+        margin-bottom: 1em;
+    }
+
+    button {
         background-color: partial.$secondaryColor;
         border: none;
-        border-radius: 25px;
+        border-radius: 100px;
         color: #fff;
-        padding: 1em;
+        padding: 1.5em;
     }
-    .btn:hover {
+    button:hover {
         background-color: #fff;
         color: partial.$secondaryColor;
         border: 2px solid;
     }
 }
+
+.start-stage button, .resultat-stage button{
+        display: block;
+        padding: 1em 3em;
+        font-size: 20px;
+        font-weight: bold;
+        background-color: partial.$primaryColor;
+    }
+
+.spørgsmål-stage{ //styling af spørgsmål stages
+    button{
+        font-size: 16px;
+        width: 400px;
+        text-align: left;
+    }
+}
+
+.resultat-stage{ //styling af resultat stages
+    gap: 1em;
+    .text-box{
+        background-color: partial.$secondaryColor;
+        text-align: left;
+        border-radius: 20px;
+        padding: 1.5em;
+        height: 50vh;
+        margin-bottom: 2em;
+    }
+
+    p{
+        color: white;
+        font-size: 14px;
+    }
+}
+
+
 
 //FOOTER
 
@@ -185,9 +227,10 @@ footer{
         }
 
         a{
+            transition: 0.3s;
             color: #fff;
                 &:hover{
-                    color: partial.$primaryColor;
+                    color: #42b393;
                 }
         }
 

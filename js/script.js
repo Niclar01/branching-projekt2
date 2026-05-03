@@ -8,17 +8,18 @@ heroBtn.addEventListener("click", showStartScreen); //Når knappen klikkes vises
 function showStartScreen() {
 
     const section = document.createElement("section"); //laver en ny sektion
+    section.classList.add("stage", "start-stage"); //giver 2 classes til sektionen så de kan styles
 
     const h2 = document.createElement("h2"); //laver en ny overskrift
     h2.textContent = "Har du styr på dine adgangskoder?"; //den nye overskrift
     section.append(h2);
 
     const p = document.createElement("p"); //laver ny paragraf
-    p.textContent = "Find ud af det her"; //den nye tekst
+    p.textContent = "Find ud af det her 👇🏼"; //den nye tekst
     section.append(p);
 
     const btn = document.createElement("button"); //laver en ny knap
-    btn.textContent = "Start"; //den nye tekst på knap
+    btn.textContent = "START"; //den nye tekst på knap
     section.append(btn);
 
     main.innerHTML = ""; //Fjerner alt fra main
@@ -33,6 +34,7 @@ function showStartScreen() {
 function showQuestion1() {
 
     const section = document.createElement("section"); //laver ny sektion
+    section.classList.add("stage", "spørgsmål-stage"); //giver 2 classes til sektionen så de kan styles
 
     const h2 = document.createElement("h2"); //laver ny overskrift
     h2.textContent = "Din nye uddannelse beder dig om at oprette en adgangskode til skolens hjemmeside."; //den nye overskrift
@@ -66,6 +68,7 @@ function showQuestion1() {
 function showQuestion2() {
 
     const section = document.createElement("section"); //laver ny sektion
+    section.classList.add("stage", "spørgsmål-stage"); //giver 2 classes til sektionen så de kan styles
 
     const h2 = document.createElement("h2"); //laver ny overskrift
     h2.textContent = "Du vil gerne gemme din nye kode, så du hurtigt og nemt kan logge ind næste gang."; //den nye overskrift
@@ -99,6 +102,7 @@ function showQuestion2() {
 function showQuestion3() {
 
     const section = document.createElement("section"); //laver en ny sektion
+    section.classList.add("stage", "spørgsmål-stage"); //giver 2 classes til sektionen så de kan styles
 
     const h2 = document.createElement("h2"); //laver en ny overskrift
     h2.textContent = "Spørgsmål 3"; //den nye overskrift
@@ -132,14 +136,30 @@ function showQuestion3() {
 function showResultA() {
 
     const section = document.createElement("section"); //laver ny sektion
+    section.classList.add("stage", "resultat-stage"); //giver 2 classes til sektionen så de kan styles
 
     const h2 = document.createElement("h2"); //laver ny overskrift
-    h2.textContent = "Resultat A"; //ny tekst til overskrift
+    h2.textContent = "Åhh nej! - Du er blevet hacket..."; //ny tekst til overskrift
     section.append(h2);
 
-    const p = document.createElement("p"); //laver ny paragraf
-    p.textContent = "Beskrivelse"; //ny tekst
-    section.append(p);
+    //Tekstboks
+    const textBox = document.createElement("div"); //laver ny div
+    textBox.classList.add("text-box"); //tilføjer class "text-box"
+
+    const p1 = document.createElement("p");
+    p1.textContent = "Dine svar fortæller os at du har stor sandsynlighed for at blive hacket, eller udsat for andre former for svindel. Men du er langt fra den eneste!";
+
+    const p2 = document.createElement("p");
+    p2.textContent = "Her er hvad du kan gøre:";
+
+    const p3 = document.createElement("p");
+    p3.textContent = "1. Vælg en stærk og unik adgangskode";
+
+    const p4 = document.createElement("p");
+    p4.textContent = "At bruge din hunds kælenavn eller din mors fødselsdagsdato som adgangskode, er ikke sikkert. Genbruger du dine koder er der en stor chance for at hackere nemt kan få adgang til alle dine profiler. Sørg derfor altid for at vælge en stærk og unik adgangskode.";
+
+    textBox.append(p1, p2, p3, p4);
+    section.append(textBox);
 
     const btn = document.createElement("button"); //laver ny knap
     btn.textContent = "Start forfra"; //ny tekst til knap
@@ -157,17 +177,33 @@ function showResultA() {
 function showResultB() {
 
     const section = document.createElement("section"); //laver ny sektion
+    section.classList.add("stage", "resultat-stage"); //giver 2 classes til sektionen så de kan styles
 
     const h2 = document.createElement("h2"); //laver ny overskrift
-    h2.textContent = "Resultat B"; //ny tekst til overskrift
+    h2.textContent = "Overskrift"; //ny tekst til overskrift
     section.append(h2);
 
-    const p = document.createElement("p"); //laver ny paragraf
-    p.textContent = "Beskrivelse"; //ny tekst
-    section.append(p);
+    //Tekstboks
+    const textBox = document.createElement("div"); //laver ny div
+    textBox.classList.add("text-box"); //tilføjer class "text-box"
+
+    const p1 = document.createElement("p");
+    p1.textContent = "Dine svar fortæller os at du har stor sandsynlighed for at blive hacket, eller udsat for andre former for svindel. Men du er langt fra den eneste!";
+
+    const p2 = document.createElement("p");
+    p2.textContent = "Her er hvad du kan gøre:";
+
+    const p3 = document.createElement("p");
+    p3.textContent = "1. Vælg en stærk og unik adgangskode";
+
+    const p4 = document.createElement("p");
+    p4.textContent = "At bruge din hunds kælenavn eller din mors fødselsdagsdato som adgangskode, er ikke sikkert. Genbruger du dine koder er der en stor chance for at hackere nemt kan få adgang til alle dine profiler. Sørg derfor altid for at vælge en stærk og unik adgangskode.";
+
+    textBox.append(p1, p2, p3, p4);
+    section.append(textBox);
 
     const btn = document.createElement("button"); //laver ny knap
-    btn.textContent = "Start forfra"; //ny tekst til knap
+    btn.textContent = "Prøv igen"; //ny tekst til knap
     section.append(btn);
 
     main.innerHTML = "";
@@ -177,6 +213,7 @@ function showResultB() {
         showStartScreen();
     });
 }
+
 /*const heroBtn = document.querySelector(".btn-hero");
 const main = document.querySelector("main");
 
