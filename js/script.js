@@ -3,7 +3,7 @@ const heroBtn = document.querySelector(".btn-hero"); //"Test dig selv her"-knapp
 const main = document.querySelector("main"); //Området hvor scenerne vises
 
 
-//Hjælpe funktion - samler koden
+//Hjælpe funktion som samler koden i stedet for gentagelser
 function createStage(className) {
     const section = document.createElement("section");
     section.classList.add("stage", className);
@@ -40,13 +40,13 @@ function showStartScreen() {
     });
 }
 
-//funktion til spørgsmål 1
+//Spørgsmål 1
 function showQuestion1() {
 
     const section = createStage("spørgsmål-stage"); // henter hjælpefunktionen fra toppen
 
     const h2 = document.createElement("h2"); //laver ny overskrift
-    h2.textContent = "Din nye uddannelse beder dig om at oprette en adgangskode til skolens hjemmeside."; //den nye overskrift
+    h2.textContent = "Du er startet på din nye uddannelse og bliver bedt om at lave en ny adgangskode."; //den nye overskrift
     section.append(h2);
 
     const p = document.createElement("p"); //laver ny paragraf
@@ -58,21 +58,108 @@ function showQuestion1() {
     section.append(btnA);
 
     const btnB = document.createElement("button"); //laver en ny knap
-    btnB.textContent = "B: Jeg lader computeren generere en stærk adgangskode for mig."; //den nye tekst til knap
+    btnB.textContent = "B: Jeg lader computeren generere en stærk og unik adgangskode for mig."; //den nye tekst til knap
     section.append(btnB);
 
-    btnA.addEventListener("click", function () { //knap A går til spørgsmål 2
-    showQuestion2();
+    btnA.addEventListener("click", function () { //knap A går til Feedback A
+    showFeedbackA();
     });
 
-    btnB.addEventListener("click", function () { //knap B går til spørgsmål 2
-    showQuestion2();
+    btnB.addEventListener("click", function () { //knap B går til Feedback B
+    showFeedbackB();
     });
 
 }
 
-//Spørgsmål 2
-function showQuestion2() {
+//Feedback A
+function showFeedbackA() {
+
+    const section = createStage("resultat-stage"); // henter hjælpefunktionen fra toppen
+
+    const h2 = document.createElement("h2"); //laver ny overskrift
+    h2.textContent = "Pas på her!"; //den nye overskrift
+    section.append(h2);
+
+    //Tekstboks
+    const textBox = document.createElement("div"); //laver ny div
+    textBox.classList.add("text-box"); //tilføjer class "text-box"
+
+    const p = document.createElement("p"); //laver ny paragraf
+    p.textContent = "Når du vælger en tidligere kode har du større chance for at blive hacket. prøv så vidt det er muligt at oprette en mere sikker kode."; //den nye tekst
+    textBox.append(p);
+    section.append(textBox);
+
+    const btnNext = document.createElement("button"); //laver en ny knap
+    btnNext.textContent = "Næste"; //den nye tekst til knap
+    section.append(btnNext);
+
+    btnNext.addEventListener("click", function () { //knap "Næste" går til spørgsmål 1A
+    showQuestion1A();
+    });
+
+}
+
+//Feedback B
+function showFeedbackB() {
+
+    const section = createStage("resultat-stage"); // henter hjælpefunktionen fra toppen
+
+    const h2 = document.createElement("h2"); //laver ny overskrift
+    h2.textContent = "Klogt valg!"; //den nye overskrift
+    section.append(h2);
+
+    //Tekstboks
+    const textBox = document.createElement("div"); //laver ny div
+    textBox.classList.add("text-box"); //tilføjer class "text-box"
+
+    const p = document.createElement("p"); //laver ny paragraf
+    p.textContent = "Med en unik kode er det sværere at gætte for en potentiel hacker. På den måde kan du sikre dine andre profiler, selv hvis en hacker skulle få adgang på ét af stederne."; //den nye tekst
+    textBox.append(p);
+    section.append(textBox);
+
+    const btnNext = document.createElement("button"); //laver en ny knap
+    btnNext.textContent = "Næste"; //den nye tekst til knap
+    section.append(btnNext);
+
+    btnNext.addEventListener("click", function () { //knap "Næste" går til spørgsmål 1B
+    showQuestion1B();
+    });
+
+}
+
+//Spørgsmål 1A
+function showQuestion1A() {
+
+    const section = createStage("spørgsmål-stage"); // henter hjælpefunktionen fra toppen
+
+    const h2 = document.createElement("h2"); //laver ny overskrift
+    h2.textContent = "Din kode er blevet lækket og hackeren har fået adgang til flere af dine platforme med samme kode."; //den nye overskrift
+    section.append(h2);
+
+    const p = document.createElement("p"); //laver ny paragraf
+    p.textContent = "Hvad gør du?"; //den nye tekst
+    section.append(p);
+
+    const btnA = document.createElement("button"); //laver en ny knap
+    btnA.textContent = "A: Jeg skifter begge adgangskoder men denne gang til noget nyt og forskellige koder."; //den nye tekst til knap
+    section.append(btnA);
+
+    const btnB = document.createElement("button"); //laver en ny knap
+    btnB.textContent = "B: Jeg skifter begge koder men til den samme kode."; //den nye tekst til knap
+    section.append(btnB);
+
+    btnA.addEventListener("click", function () { //knap A går til resultat R1
+        showResult1();
+    });
+
+    btnB.addEventListener("click", function () { //knap B går til resultat R2
+        showResult2();
+    });
+
+}
+
+//Spørgsmål 1B
+function showQuestion1B() {
 
     const section = createStage("spørgsmål-stage"); // henter hjælpefunktionen fra toppen
 
@@ -85,61 +172,30 @@ function showQuestion2() {
     section.append(p);
 
     const btnA = document.createElement("button"); //laver en ny knap
-    btnA.textContent = "A"; //den nye tekst til knap
+    btnA.textContent = "A: Jeg skriver den ned i noter på min computer eller på en lap papir under mit tastatur."; //den nye tekst til knap
     section.append(btnA);
 
     const btnB = document.createElement("button"); //laver en ny knap
-    btnB.textContent = "B"; //den nye tekst til knap
+    btnB.textContent = "B: Jeg bruger en password-manager."; //den nye tekst til knap
     section.append(btnB);
 
-    btnA.addEventListener("click", function () { //knap A går til spørgsmål 3
-        showQuestion3();
+    btnA.addEventListener("click", function () { //knap A går til Resultat 3
+        showResult3();
     });
 
-    btnB.addEventListener("click", function () { //knap B går til spørgsmål 3
-        showQuestion3();
+    btnB.addEventListener("click", function () { //knap B går til Resultat 4
+        showResult4();
     });
 
 }
 
-//Spørgsmål 3
-function showQuestion3() {
-
-    const section = createStage("spørgsmål-stage"); // henter hjælpefunktionen fra toppen
-
-    const h2 = document.createElement("h2"); //laver en ny overskrift
-    h2.textContent = "Spørgsmål 3"; //den nye overskrift
-    section.append(h2);
-
-    const p = document.createElement("p"); //laver en ny paragraf
-    p.textContent = "Hvad gør du?"; //den nye tekst
-    section.append(p);
-
-    const btnA = document.createElement("button"); //laver en ny knap
-    btnA.textContent = "A (3)"; //tekst til ny knap
-    section.append(btnA);
-
-    const btnB = document.createElement("button"); //laver en ny knap
-    btnB.textContent = "B (3)"; //tekst til ny knap
-    section.append(btnB);
-
-    btnA.addEventListener("click", function () {  //knap A går til resultat A
-        showResultA();
-    });
-
-    btnB.addEventListener("click", function () { //knap B går til resultat B
-        showResultB();
-    });
-
-}
-
-//Resultat A
-function showResultA() {
+//Resultat 1
+function showResult1() {
 
     const section = createStage("resultat-stage"); // henter hjælpefunktionen fra toppen
 
     const h2 = document.createElement("h2"); //laver ny overskrift
-    h2.textContent = "Åhh nej! - Du er blevet hacket..."; //ny tekst til overskrift
+    h2.textContent = "Smart valg!"; //ny tekst til overskrift
     section.append(h2);
 
     //Tekstboks
@@ -147,18 +203,15 @@ function showResultA() {
     textBox.classList.add("text-box"); //tilføjer class "text-box"
 
     const p1 = document.createElement("p");
-    p1.textContent = "Dine svar fortæller os at du har stor sandsynlighed for at blive hacket, eller udsat for andre former for svindel. Men du er langt fra den eneste!";
+    p1.textContent = "Hvis du får besked om at dine adgangskoder er blevet misbrugt, er det rigtig vigtigt at du reagerer med det samme.";
 
     const p2 = document.createElement("p");
-    p2.textContent = "Her er hvad du kan gøre:";
+    p2.textContent = "Sørg for at ændre dine adgangskoder begge steder.";
 
     const p3 = document.createElement("p");
-    p3.textContent = "1. Vælg en stærk og unik adgangskode";
+    p3.textContent = "Tip - Genbruger du flere af dine koder, så gå dem igennem med det samme og skift dem til noget forskelligt.";
 
-    const p4 = document.createElement("p");
-    p4.textContent = "At bruge din hunds kælenavn eller din mors fødselsdagsdato som adgangskode, er ikke sikkert. Genbruger du dine koder er der en stor chance for at hackere nemt kan få adgang til alle dine profiler. Sørg derfor altid for at vælge en stærk og unik adgangskode.";
-
-    textBox.append(p1, p2, p3, p4);
+    textBox.append(p1, p2, p3);
     section.append(textBox);
 
     const btn = document.createElement("button"); //laver ny knap
@@ -170,13 +223,13 @@ function showResultA() {
     });
 }
 
-//Resultat B
-function showResultB() {
+//Resultat 2
+function showResult2() {
 
     const section = createStage("resultat-stage"); // henter hjælpefunktionen fra toppen
 
     const h2 = document.createElement("h2"); //laver ny overskrift
-    h2.textContent = "Overskrift"; //ny tekst til overskrift
+    h2.textContent = "Du leger med ilden her.."; //ny tekst til overskrift
     section.append(h2);
 
     //Tekstboks
@@ -184,22 +237,87 @@ function showResultB() {
     textBox.classList.add("text-box"); //tilføjer class "text-box"
 
     const p1 = document.createElement("p");
-    p1.textContent = "Dine svar fortæller os at du har stor sandsynlighed for at blive hacket, eller udsat for andre former for svindel. Men du er langt fra den eneste!";
+    p1.textContent = "Selvom du skifter begge dine koder, vil der stadig være en høj risiko for nemmere adgang nælste gang, hvis en hacker gætter den ene kode.";
 
     const p2 = document.createElement("p");
-    p2.textContent = "Her er hvad du kan gøre:";
+    p2.textContent = "Tænk over hvor vigtigt det er for dig at bevare den data som din adgangskode beskytter.";
 
     const p3 = document.createElement("p");
-    p3.textContent = "1. Vælg en stærk og unik adgangskode";
+    p3.textContent = "Tip - Vælg noget unikt og forskelligt, med både bogstaver, tal, store/små bogstaver og specialtegn.";
 
-    const p4 = document.createElement("p");
-    p4.textContent = "At bruge din hunds kælenavn eller din mors fødselsdagsdato som adgangskode, er ikke sikkert. Genbruger du dine koder er der en stor chance for at hackere nemt kan få adgang til alle dine profiler. Sørg derfor altid for at vælge en stærk og unik adgangskode.";
-
-    textBox.append(p1, p2, p3, p4);
+    textBox.append(p1, p2, p3);
     section.append(textBox);
 
     const btn = document.createElement("button"); //laver ny knap
-    btn.textContent = "Prøv igen"; //ny tekst til knap
+    btn.textContent = "Start forfra"; //ny tekst til knap
+    section.append(btn);
+
+    btn.addEventListener("click", function () { //knap fører til start skærm
+        showStartScreen();
+    });
+}
+
+//Resultat 3
+function showResult3() {
+
+    const section = createStage("resultat-stage"); // henter hjælpefunktionen fra toppen
+
+    const h2 = document.createElement("h2"); //laver ny overskrift
+    h2.textContent = "Uhh.. Er du nu sikker på at det er en god idé?"; //ny tekst til overskrift
+    section.append(h2);
+
+    //Tekstboks
+    const textBox = document.createElement("div"); //laver ny div
+    textBox.classList.add("text-box"); //tilføjer class "text-box"
+
+    const p1 = document.createElement("p");
+    p1.textContent = "Når du skriver dine koder manuelt ned enten digitalt eller fysisk, øger du risikoen for at det ender i de forkerte hænder.";
+
+    const p2 = document.createElement("p");
+    p2.textContent = "Tænk over hvor vigtigt det er for dig at bevare den data som din adgangskode beskytter.";
+
+    const p3 = document.createElement("p");
+    p3.textContent = "Tip - Brug en password-manager som fx. BitWarden, der husker alle dine adgangskoder og opbevarer dem sikkert.";
+
+    textBox.append(p1, p2, p3);
+    section.append(textBox);
+
+    const btn = document.createElement("button"); //laver ny knap
+    btn.textContent = "Start forfra"; //ny tekst til knap
+    section.append(btn);
+
+    btn.addEventListener("click", function () { //knap fører til start skærm
+        showStartScreen();
+    });
+}
+
+//Resultat 4
+function showResult4() {
+
+    const section = createStage("resultat-stage"); // henter hjælpefunktionen fra toppen
+
+    const h2 = document.createElement("h2"); //laver ny overskrift
+    h2.textContent = "Det sikre valg!"; //ny tekst til overskrift
+    section.append(h2);
+
+    //Tekstboks
+    const textBox = document.createElement("div"); //laver ny div
+    textBox.classList.add("text-box"); //tilføjer class "text-box"
+
+    const p1 = document.createElement("p");
+    p1.textContent = "Med en password-manager har du altid nem og sikker adgang til dine koder.";
+
+    const p2 = document.createElement("p");
+    p2.textContent = "Du slipper for at huske dem i hovedet eller at skulle skrive dem ned.";
+
+    const p3 = document.createElement("p");
+    p3.textContent = "Tip - Brug en password-manager som fx. BitWarden, der husker alle dine adgangskoder og opbevarer dem sikkert.";
+
+    textBox.append(p1, p2, p3);
+    section.append(textBox);
+
+    const btn = document.createElement("button"); //laver ny knap
+    btn.textContent = "Start forfra"; //ny tekst til knap
     section.append(btn);
 
     btn.addEventListener("click", function () { //knap fører til start skærm
@@ -208,107 +326,3 @@ function showResultB() {
 }
 
 heroBtn.addEventListener("click", showStartScreen); //Når knappen klikkes vises start skærmen
-/*const heroBtn = document.querySelector(".btn-hero");
-const main = document.querySelector("main");
-
-heroBtn.addEventListener("click", function () {
-    showStartScreen();
-});
-
-function showStartScreen() { //start skærm
-
-    const section = document.createElement("section");
-    section.classList.add("stage");
-
-    const h2 = document.createElement("h2");
-    h2.textContent = "Klar til testen?";
-    section.append(h2);
-
-
-    main.replaceChildren(section);
-
-}
-
-// Funktion, der skal opdatere UI
-const updateUI = (h2Text, pText, btnsText, imgPath) => {
-    const section = document.createElement("section"); //laver en ny sektion
-    section.classList.add("stage"); 
-    section.classList.add("active");
-
-    const h2 = document.createElement("h2"); //tilføjer en overskrift
-    h2.textContent = h2Text;
-    section.append(h2);
-
-    if(imgPath != undefined) { //tilføjer billede hvis der er et
-        const img = document.createElement("img");
-        img.src = imgPath;
-        section.append(img);
-    }
-
-    const p = document.createElement("p"); //tilføjer tekst
-    p.textContent = pText;
-    section.append(p);
-
-    btnsText.forEach(text => { //laver knapper
-        const button = document.createElement("button"); //lav en knap
-        button.textContent = text; //giv den en tekst
-        button.addEventListener("click", nextStage); //gør den klikbar
-        section.append(button);
-    });
-
-    // Sæt ny section ind i main
-    main.replaceChildren(section);
-}
-
-// Funktion, der skal finde frem til, hvad der skal vises
-const nextStage = (e) => { //kører når knappen klikkes
-    console.log(e.target.textContent);
-    let h2Text, pText, btnsText, imgPath;
-    switch(e.target.textContent) { //kigger på hvad der står på knappen fx. "start", "option 1" osv.
-        case "Start": //hvis du klikker star sker følgende:
-            h2Text = "Spørgsmål 1"; // skifter overskrift til Stage 1
-            pText = "Hvad gør du?"; //skifter tekst til dette
-            btnsText = ["A (1)", "B (1)"]; //nye knapper med disse navne
-        break;
-
-        case "A (1)": //hvis Option 1 knap klikkes sker følgende:
-            h2Text = "Spørgsmål 2"; //"Stage1 ændre til Option 1"
-            pText = "Hvad gør du?"; //ændres til denne tekst
-            btnsText = ["A (2)", "B (2)"]; //får en start forfra knap
-        break;
-
-        case "B (1)":
-            h2Text = "Spørgsmål 2";
-            pText = "Hvad gør du?";
-            btnsText = ["A (2)", "B (2)"];
-        break;
-
-        case "A (2)":
-            h2Text = "Spørgsmål 3";
-            pText = "Hvad gør du?";
-            btnsText = ["A (3)", "B (3)"];
-        break;
-
-        case "B (2)":
-            h2Text = "Spørgsmål 3";
-            pText = "Hvad gør du?";
-            btnsText = ["A (3)", "B (3)"];
-        break;
-
-        case "A (3)":
-            h2Text = "Resultat A";
-            pText = "Beskrivelse";
-            btnsText = ["Start forfra"];
-        break;
-
-        case "B (3)":
-            h2Text = "Resultat B";
-            pText = "Beskrivelse";
-            btnsText = ["Start forfra"];
-        break;
-        default: console.log("Error");
-    }
-
-    updateUI(h2Text, pText, btnsText, imgPath); //bygger den nye scene baseret på ens valg
-}
-*/
