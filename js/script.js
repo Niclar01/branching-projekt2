@@ -2,7 +2,17 @@
 const heroBtn = document.querySelector(".btn-hero"); //"Test dig selv her"-knappen
 const main = document.querySelector("main"); //Området hvor scenerne vises
 
-heroBtn.addEventListener("click", showStartScreen); //Når knappen klikkes vises start skærmen
+
+//Hjælpe funktion - samler koden
+function createStage(className) {
+    const section = document.createElement("section");
+    section.classList.add("stage", className);
+
+    main.innerHTML = "";
+    main.append(section);
+
+    return section;
+}
 
 //Start skærmen laves
 function showStartScreen() {
@@ -33,8 +43,7 @@ function showStartScreen() {
 //funktion til spørgsmål 1
 function showQuestion1() {
 
-    const section = document.createElement("section"); //laver ny sektion
-    section.classList.add("stage", "spørgsmål-stage"); //giver 2 classes til sektionen så de kan styles
+    const section = createStage("spørgsmål-stage"); // henter hjælpefunktionen fra toppen
 
     const h2 = document.createElement("h2"); //laver ny overskrift
     h2.textContent = "Din nye uddannelse beder dig om at oprette en adgangskode til skolens hjemmeside."; //den nye overskrift
@@ -60,15 +69,12 @@ function showQuestion1() {
     showQuestion2();
     });
 
-    main.innerHTML = ""; //fjerner alt fra main
-    main.append(section);
 }
 
 //Spørgsmål 2
 function showQuestion2() {
 
-    const section = document.createElement("section"); //laver ny sektion
-    section.classList.add("stage", "spørgsmål-stage"); //giver 2 classes til sektionen så de kan styles
+    const section = createStage("spørgsmål-stage"); // henter hjælpefunktionen fra toppen
 
     const h2 = document.createElement("h2"); //laver ny overskrift
     h2.textContent = "Du vil gerne gemme din nye kode, så du hurtigt og nemt kan logge ind næste gang."; //den nye overskrift
@@ -94,15 +100,12 @@ function showQuestion2() {
         showQuestion3();
     });
 
-    main.innerHTML = ""; //fjerner alt fra main
-    main.append(section);
 }
 
 //Spørgsmål 3
 function showQuestion3() {
 
-    const section = document.createElement("section"); //laver en ny sektion
-    section.classList.add("stage", "spørgsmål-stage"); //giver 2 classes til sektionen så de kan styles
+    const section = createStage("spørgsmål-stage"); // henter hjælpefunktionen fra toppen
 
     const h2 = document.createElement("h2"); //laver en ny overskrift
     h2.textContent = "Spørgsmål 3"; //den nye overskrift
@@ -128,15 +131,12 @@ function showQuestion3() {
         showResultB();
     });
 
-    main.innerHTML = "";
-    main.append(section);
 }
 
 //Resultat A
 function showResultA() {
 
-    const section = document.createElement("section"); //laver ny sektion
-    section.classList.add("stage", "resultat-stage"); //giver 2 classes til sektionen så de kan styles
+    const section = createStage("resultat-stage"); // henter hjælpefunktionen fra toppen
 
     const h2 = document.createElement("h2"); //laver ny overskrift
     h2.textContent = "Åhh nej! - Du er blevet hacket..."; //ny tekst til overskrift
@@ -165,9 +165,6 @@ function showResultA() {
     btn.textContent = "Start forfra"; //ny tekst til knap
     section.append(btn);
 
-    main.innerHTML = "";
-    main.append(section);
-
     btn.addEventListener("click", function () { //knap fører til start skærm
         showStartScreen();
     });
@@ -176,8 +173,7 @@ function showResultA() {
 //Resultat B
 function showResultB() {
 
-    const section = document.createElement("section"); //laver ny sektion
-    section.classList.add("stage", "resultat-stage"); //giver 2 classes til sektionen så de kan styles
+    const section = createStage("resultat-stage"); // henter hjælpefunktionen fra toppen
 
     const h2 = document.createElement("h2"); //laver ny overskrift
     h2.textContent = "Overskrift"; //ny tekst til overskrift
@@ -206,14 +202,12 @@ function showResultB() {
     btn.textContent = "Prøv igen"; //ny tekst til knap
     section.append(btn);
 
-    main.innerHTML = "";
-    main.append(section);
-
     btn.addEventListener("click", function () { //knap fører til start skærm
         showStartScreen();
     });
 }
 
+heroBtn.addEventListener("click", showStartScreen); //Når knappen klikkes vises start skærmen
 /*const heroBtn = document.querySelector(".btn-hero");
 const main = document.querySelector("main");
 

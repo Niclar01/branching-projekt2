@@ -9,7 +9,6 @@ $font: "inter-18pt", sans-serif;
 /* Mixin - Mixin er en måde at genbruge en kode på. Man tager kode som bruges flere steder og samler det i en mixin */
 
 // Mixin flex
-
 @mixin flex($justify: center, $align: center){
     /* $justify & $align er lokale variabler koblet til flex-mixin. Kan ændres når man kalder på denne mixin */
     display: flex;
