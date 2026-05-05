@@ -64,8 +64,9 @@ nav a:hover {
   font-weight: bold;
   cursor: pointer;
 }
-nav .active {
-  font-weight: bold;
+
+.burger {
+  display: none;
 }
 
 .hero-sektion {
@@ -182,7 +183,7 @@ nav .active {
   text-align: left;
   border-radius: 20px;
   padding: 1.5em;
-  height: 50vh;
+  height: auto;
   margin-bottom: 2em;
 }
 .resultat-stage p {
@@ -230,13 +231,31 @@ footer a:hover {
 
 @media (max-width: 768px) {
   nav {
-    flex-direction: column;
-    gap: 1em;
+    position: relative;
   }
-  nav ul {
+  nav .burger {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #567548;
+    cursor: pointer;
+  }
+  nav .nav-links {
+    position: absolute;
+    top: 100%;
+    background: white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    width: 100%;
     flex-direction: column;
-    text-align: center;
-    gap: 0.5em;
+    align-items: center;
+    display: none;
+  }
+  nav .nav-links li {
+    margin: 1em 0;
+  }
+  nav .nav-links.active {
+    display: flex;
   }
   .hero-sektion {
     padding: 2em 1em;
@@ -248,7 +267,7 @@ footer a:hover {
   }
   .computer-billede {
     grid-column: auto;
-    height: 200px;
+    height: 40vh;
   }
   .tekst {
     grid-column: auto;
@@ -261,18 +280,14 @@ footer a:hover {
   .spørgsmål-stage button {
     width: 100%;
   }
-  .resultat-stage .text-box {
-    height: auto;
-  }
   footer {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 1em;
+    /* $justify & $align er lokale variabler koblet til flex-mixin. Kan ændres når man kalder på denne mixin */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15vh;
   }
-  .footer-højre {
-    text-align: center;
-  }
-  .logo-footer {
-    width: 150px;
+  .footer-venstre, .footer-højre {
+    display: none;
   }
 }/*# sourceMappingURL=style.css.map */

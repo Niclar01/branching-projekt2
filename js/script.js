@@ -50,7 +50,7 @@ function showQuestion1() {
     section.append(h2);
 
     const p = document.createElement("p"); //laver ny paragraf
-    p.textContent = "Hvad gør du?"; //den nye tekst
+    p.textContent = "Hvad gør du? 🤔"; //den nye tekst
     section.append(p);
 
     const btnA = document.createElement("button"); //laver en ny knap
@@ -77,7 +77,7 @@ function showFeedbackA() {
     const section = createStage("resultat-stage"); // henter hjælpefunktionen fra toppen
 
     const h2 = document.createElement("h2"); //laver ny overskrift
-    h2.textContent = "Pas på her!"; //den nye overskrift
+    h2.textContent = "Pas på her! 👀"; //den nye overskrift
     section.append(h2);
 
     //Tekstboks
@@ -105,7 +105,7 @@ function showFeedbackB() {
     const section = createStage("resultat-stage"); // henter hjælpefunktionen fra toppen
 
     const h2 = document.createElement("h2"); //laver ny overskrift
-    h2.textContent = "Klogt valg!"; //den nye overskrift
+    h2.textContent = "Klogt valg! 🤩"; //den nye overskrift
     section.append(h2);
 
     //Tekstboks
@@ -137,7 +137,7 @@ function showQuestion1A() {
     section.append(h2);
 
     const p = document.createElement("p"); //laver ny paragraf
-    p.textContent = "Hvad gør du?"; //den nye tekst
+    p.textContent = "Hvad gør du? 🤔"; //den nye tekst
     section.append(p);
 
     const btnA = document.createElement("button"); //laver en ny knap
@@ -168,7 +168,7 @@ function showQuestion1B() {
     section.append(h2);
 
     const p = document.createElement("p"); //laver ny paragraf
-    p.textContent = "Hvad gør du?"; //den nye tekst
+    p.textContent = "Hvad gør du? 🤔"; //den nye tekst
     section.append(p);
 
     const btnA = document.createElement("button"); //laver en ny knap
@@ -195,7 +195,7 @@ function showResult1() {
     const section = createStage("resultat-stage"); // henter hjælpefunktionen fra toppen
 
     const h2 = document.createElement("h2"); //laver ny overskrift
-    h2.textContent = "Smart valg!"; //ny tekst til overskrift
+    h2.textContent = "Smart valg! 🤩"; //ny tekst til overskrift
     section.append(h2);
 
     //Tekstboks
@@ -229,7 +229,7 @@ function showResult2() {
     const section = createStage("resultat-stage"); // henter hjælpefunktionen fra toppen
 
     const h2 = document.createElement("h2"); //laver ny overskrift
-    h2.textContent = "Du leger med ilden her.."; //ny tekst til overskrift
+    h2.textContent = "Du leger med ilden her 😳"; //ny tekst til overskrift
     section.append(h2);
 
     //Tekstboks
@@ -263,7 +263,7 @@ function showResult3() {
     const section = createStage("resultat-stage"); // henter hjælpefunktionen fra toppen
 
     const h2 = document.createElement("h2"); //laver ny overskrift
-    h2.textContent = "Uhh.. Er du nu sikker på at det er en god idé?"; //ny tekst til overskrift
+    h2.textContent = "Uhh.. Er du nu sikker på at det er en god idé? 😬"; //ny tekst til overskrift
     section.append(h2);
 
     //Tekstboks
@@ -297,7 +297,7 @@ function showResult4() {
     const section = createStage("resultat-stage"); // henter hjælpefunktionen fra toppen
 
     const h2 = document.createElement("h2"); //laver ny overskrift
-    h2.textContent = "Det sikre valg!"; //ny tekst til overskrift
+    h2.textContent = "Det sikre valg! ⭐️"; //ny tekst til overskrift
     section.append(h2);
 
     //Tekstboks
@@ -324,5 +324,12 @@ function showResult4() {
         showStartScreen();
     });
 }
+
+const burger = document.querySelector(".burger"); //Finder .burger knappen
+const navLinks = document.querySelector(".nav-links"); //Finder .nav-links
+
+burger.addEventListener("click", () => { //Når der klikkes på knappen sker der følgende:
+    navLinks.classList.toggle("active"); //Skift til ".active" ved klik og fjerner ".active" ved klik igen
+});
 
 heroBtn.addEventListener("click", showStartScreen); //Når knappen klikkes vises start skærmen
