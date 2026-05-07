@@ -8,30 +8,37 @@
 
 body {
   background-color: #FBFFF9;
+  display: flex;
+  flex-direction: column;
   font-family: "inter-18pt", sans-serif;
-}
-body p, body a {
-  font-size: 16px;
-  color: #000;
-  line-height: 1.5;
+  min-height: 100vh;
 }
 body h1, body h2, body h3, body h4 {
-  font-weight: 600;
   color: #000;
+  font-weight: 600;
+}
+body p, body a {
+  color: #000;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+main {
+  flex: 1;
 }
 
 img {
-  max-width: 100%;
   height: auto;
+  max-width: 100%;
 }
 
 header {
-  display: flex;
   align-items: center;
-  height: 11vh;
   background-color: #fff;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   border-radius: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  height: 11vh;
   margin: 1em;
   padding: 0 2em;
 }
@@ -52,17 +59,21 @@ nav ul {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0;
+}
+nav ul li {
+  margin: 1em;
 }
 nav a {
   color: #567548;
-  padding: 0.5em;
-  margin: 0.5em;
+  display: block;
   font-size: 16px;
+  padding: 0.5em;
   text-decoration: none;
 }
 nav a:hover {
-  font-weight: bold;
   cursor: pointer;
+  font-weight: bold;
 }
 
 .burger {
@@ -75,9 +86,9 @@ nav a:hover {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  gap: 1em;
   height: 50vh;
   text-align: center;
-  gap: 1em;
 }
 .hero-sektion h1, .hero-sektion p {
   color: #567548;
@@ -100,7 +111,6 @@ nav a:hover {
 }
 
 .tekst-img-sektion {
-  grid-column: 1/6;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   height: 50vh;
@@ -108,24 +118,24 @@ nav a:hover {
 }
 
 .computer-billede {
-  grid-column: 1/4;
   background-image: url(../img/computer.png);
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  grid-column: 1/4;
 }
 
 .tekst {
-  grid-column: 4/7;
   background-color: #567548;
+  grid-column: 4/7;
   padding: 4em;
+}
+.tekst h2 {
+  margin-bottom: 0.5em;
+  text-align: center;
 }
 .tekst h2, .tekst p {
   color: #FBFFF9;
-}
-.tekst h2 {
-  text-align: center;
-  margin-bottom: 0.5em;
 }
 .tekst p {
   margin-bottom: 1em;
@@ -137,12 +147,11 @@ nav a:hover {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  text-align: center;
-  min-height: 70vh;
-  max-width: 550px;
-  margin: 3em auto;
-  /*padding: 14em 0;*/
   gap: 0.5em;
+  margin: 3em auto;
+  max-width: 550px;
+  min-height: 70vh;
+  text-align: center;
 }
 .stage p {
   margin-bottom: 1em;
@@ -156,23 +165,23 @@ nav a:hover {
 }
 .stage button:hover {
   background-color: #fff;
-  color: #365528;
   border: 2px solid;
+  color: #365528;
 }
 
 .start-stage button, .resultat-stage button {
+  background-color: #567548;
   display: block;
-  padding: 1em 3em;
   font-size: 20px;
   font-weight: bold;
-  background-color: #567548;
+  padding: 1em 3em;
 }
 
 .spørgsmål-stage button {
   font-size: 16px;
-  width: 100%;
   max-width: 400px;
   text-align: left;
+  width: 100%;
 }
 
 .resultat-stage {
@@ -180,11 +189,11 @@ nav a:hover {
 }
 .resultat-stage .text-box {
   background-color: #365528;
-  text-align: left;
   border-radius: 20px;
-  padding: 1.5em;
   height: auto;
   margin-bottom: 2em;
+  padding: 1.5em;
+  text-align: left;
 }
 .resultat-stage p {
   color: white;
@@ -192,21 +201,20 @@ nav a:hover {
 }
 
 footer {
-  grid-column: 1/4;
   background-color: #365528;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   padding: 1em 1em;
 }
-footer p, footer h3 {
+footer h3, footer p {
   color: #fff;
-  line-height: 1.5;
   font-style: normal;
   font-size: 16px;
+  line-height: 1.5;
 }
 footer a {
-  transition: 0.3s;
   color: #fff;
+  transition: 0.3s;
 }
 footer a:hover {
   color: #42b393;
@@ -220,13 +228,13 @@ footer a:hover {
 .logo-footer {
   align-self: center;
   justify-self: center;
-  width: 250px;
   height: auto;
+  width: 250px;
 }
 
 .footer-højre {
-  text-align: right;
   margin: auto 0;
+  text-align: right;
 }
 
 @media (max-width: 768px) {
@@ -234,32 +242,44 @@ footer a:hover {
     position: relative;
   }
   nav .burger {
-    display: block;
     background: none;
     border: none;
-    font-size: 24px;
     color: #567548;
     cursor: pointer;
+    display: block;
+    font-size: 24px;
   }
   nav .nav-links {
+    align-items: center;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    display: none;
+    flex-direction: column;
     position: absolute;
     top: 100%;
-    background: white;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
     width: 100%;
-    flex-direction: column;
-    align-items: center;
-    display: none;
   }
   nav .nav-links li {
-    margin: 1em 0;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+  }
+  nav .nav-links li a {
+    border-radius: 20px;
+    display: block;
+    padding: 1em;
+    transition: 0.3s ease;
+  }
+  nav .nav-links li a:hover {
+    background-color: rgba(0, 0, 0, 0.1);
   }
   nav .nav-links.active {
     display: flex;
   }
   .hero-sektion {
-    padding: 2em 1em;
     height: auto;
+    padding: 2em 1em;
   }
   .tekst-img-sektion {
     grid-template-columns: 1fr;
@@ -274,8 +294,8 @@ footer a:hover {
     padding: 2em;
   }
   .stage {
-    max-width: 90%;
     margin: 2em auto;
+    max-width: 90%;
   }
   .spørgsmål-stage button {
     width: 100%;

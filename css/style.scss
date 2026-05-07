@@ -7,35 +7,42 @@
 
 body{
     background-color: partial.$bg;
+    display: flex;
+    flex-direction: column; //Header > main > footer rækkefølge
     font-family: partial.$font;
-    p, a{
-        font-size: 16px;
+    min-height: 100vh; //fylder altid hele skærmen
+    
+    h1,h2,h3,h4 {
         color: partial.$textColor;
-        line-height: 1.5;
+        font-weight: 600;
     }
 
-    h1,h2,h3,h4 {
-        font-weight: 600;
+    p, a{
         color: partial.$textColor;
+        font-size: 16px;
+        line-height: 1.5;
     }
 }
 
+main{
+    flex: 1; //Presser footer ned og undgår overlap
+}
+
 img {
-    max-width: 100%;
     height: auto;
+    max-width: 100%;
 }
 
 // HEADER //
 header{
-    display: flex;
     align-items: center;
-    height: 11vh;
     background-color: #fff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    height: 11vh;
     margin: 1em;
     padding: 0 2em;
-
 }
 
 // NAVIGATION// 
@@ -51,22 +58,25 @@ nav{
     ul{
         list-style-type: none;
         @include partial.flex;
+        padding: 0;
+
+        li{
+            margin: 1em;
+        }
     }
 
     a{
         color: partial.$primaryColor;
-        padding: 0.5em;
-        margin: 0.5em;
+        display: block;
         font-size: 16px;
+        padding: 0.5em;
         text-decoration: none;
             
-                &:hover{
-                    font-weight: bold;
-                    cursor: pointer;
-                    
-                }
+            &:hover{
+                cursor: pointer;
+                font-weight: bold;    
+            }
     }
-
 }
 
 .burger{
@@ -77,9 +87,9 @@ nav{
 .hero-sektion{
     @include partial.flex; //centrerer
     flex-direction: column; //under hinanden
+    gap: 1em; //plads mellem teksterne og knap
     height: 50vh;
     text-align: center;
-    gap: 1em; //plads mellem teksterne og knap
     
         h1, p{
             color: partial.$primaryColor;
@@ -108,7 +118,6 @@ nav{
 
 //TEKST & BILLEDE SEKTION
 .tekst-img-sektion{
-    grid-column: 1/6;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     height: 50vh;
@@ -116,46 +125,41 @@ nav{
 }
 
 .computer-billede{
-    grid-column: 1/4;
     background-image: url(../img/computer.png);
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    grid-column: 1/4;
 }
 
 .tekst{
-    grid-column: 4/7;
     background-color: partial.$primaryColor;
+    grid-column: 4/7;
     padding: 4em;
 
-    
-        h2, p{
-            color: partial.$bg;
+        h2{
+            margin-bottom: 0.5em;
+            text-align: center;
         }
 
-        h2{
-            text-align: center;
-            margin-bottom: 0.5em;
+        h2, p{
+            color: partial.$bg;
         }
 
         p{
             margin-bottom: 1em; //plads mellem p sektioner
         }
-
 }
 
 //STAGES
-
 .stage { //generel styling af området
     @include partial.flex; //centrerer
     flex-direction: column;
-    text-align: center;
-    min-height: 70vh;
-    max-width: 550px; // fylder max 550px
-    margin: 3em auto; // centrerer 
-    
-    /*padding: 14em 0;*/
     gap: 0.5em;
+    margin: 3em auto; // centrerer
+    max-width: 550px; // fylder max 550px
+    min-height: 70vh;
+    text-align: center;
 
     p{
         margin-bottom: 1em;
@@ -167,40 +171,43 @@ nav{
         border-radius: 100px;
         color: #fff;
         padding: 1.5em;
+
+            &:hover {
+                background-color: #fff;
+                border: 2px solid;
+                color: partial.$secondaryColor;
+            }
     }
-    button:hover {
-        background-color: #fff;
-        color: partial.$secondaryColor;
-        border: 2px solid;
-    }
+    
 }
 
 .start-stage button, .resultat-stage button{
+        background-color: partial.$primaryColor;
         display: block;
-        padding: 1em 3em;
         font-size: 20px;
         font-weight: bold;
-        background-color: partial.$primaryColor;
+        padding: 1em 3em;
     }
 
 .spørgsmål-stage{ //styling af spørgsmål stages
     button{
         font-size: 16px;
-        width: 100%;
         max-width: 400px;
         text-align: left;
+        width: 100%; 
     }
 }
 
 .resultat-stage{ //styling af resultat stages
     gap: 1em;
+
     .text-box{
         background-color: partial.$secondaryColor;
-        text-align: left;
         border-radius: 20px;
-        padding: 1.5em;
         height: auto;
         margin-bottom: 2em;
+        padding: 1.5em;
+        text-align: left; 
     }
 
     p{
@@ -209,32 +216,28 @@ nav{
     }
 }
 
-
-
 //FOOTER
-
 footer{
-    grid-column: 1/4;
     background-color: partial.$secondaryColor;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     padding: 1em 1em;
 
-    p, h3{
+    h3, p{
             color: #fff;
-            line-height: 1.5;
             font-style: normal;
             font-size: 16px;
+            line-height: 1.5;
         }
 
-        a{
-            transition: 0.3s;
-            color: #fff;
-                &:hover{
-                    color: #42b393;
-                }
-        }
+    a{
+        color: #fff;
+        transition: 0.3s;
 
+            &:hover{
+                color: #42b393;
+            }
+    }
 }
 
 .footer-venstre ul{
@@ -245,18 +248,17 @@ footer{
 .logo-footer{
     align-self: center;
     justify-self: center;
-    width: 250px;
     height: auto;
+    width: 250px;
 }
 
 .footer-højre{
-    text-align: right;
     margin: auto 0;
+    text-align: right;
 }
 
 
 //MOBIL VERSION
-
 @media (max-width: 768px) {
 
 //HEADER
@@ -264,38 +266,52 @@ nav {
     position: relative;
 
     .burger {
-        display: block; //knappen bliver synlig igen
         background: none;
         border: none;
-        font-size: 24px;
         color: partial.$primaryColor;
         cursor: pointer;
+        display: block; //knappen bliver synlig igen
+        font-size: 24px;
     }
 
     .nav-links {
+        align-items: center;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        display: none; // skjult før klik
+        flex-direction: column;
         position: absolute; //kommer frem ovenpå
         top: 100%; //starter under nav
-        background: white;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.15);
         width: 100%;
-        flex-direction: column;
-        align-items: center;
-        display: none; // skjult før klik
 
         li {
-            margin: 1em 0;
-        }
-    }
+            margin: 0;
+            text-align: center;
+            width: 100%;
 
-    .nav-links.active { //når knappen klikkes sker dette pga. toggle i javascript
-        display: flex;
+                a{
+                    border-radius: 20px;
+                    display: block;
+                    padding: 1em;
+                    transition: 0.3s ease;
+
+                    &:hover{
+                        background-color: rgba(0,0,0,0.1);
+                    }
+                }
+        }
+
+        &.active{ //når knappen klikkes sker dette pga. toggle i javascript
+            display: flex;
+        }
     }
 }
 
 //HERO SEKTION
     .hero-sektion { //gør telsten mindre klemt med mere plads
-        padding: 2em 1em;
         height: auto; //tilpasser sig indholdet
+        padding: 2em 1em;
     }
 
 //TEKST & BILLEDE SEKTION
@@ -316,14 +332,13 @@ nav {
 
 //STAGES
     .stage {
-        max-width: 90%; //fylder det meste af skærmen
         margin: 2em auto;
+        max-width: 90%; //fylder det meste af skærmen
     }
 
     .spørgsmål-stage button {
         width: 100%; //knappen fylder den fulde bredde
     }
-
 
 //FOOTER
     footer {
@@ -334,5 +349,4 @@ nav {
     .footer-venstre, .footer-højre {
         display: none;
     }
-
 }
